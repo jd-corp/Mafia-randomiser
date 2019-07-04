@@ -23,9 +23,9 @@ class SetupActivity : AppCompatActivity() {
     fun onSubmit(view: View) {
         var key: String = findViewById<EditText>(R.id.inputRole1).text.toString()
         var value: Int = parseInt(findViewById<EditText>(R.id.inputNum1).text.toString())
-        map[key] = value
-
-        Log.v("WTFISDIS", "I passed it")
+        Log.d("simple", "passed value")
+        map = hashMapOf(key to value)
+        Log.d("simple", "passed map")
 
         var intent = Intent(this, RandomizerActivity::class.java)
         intent.putExtra("setupData", map)
