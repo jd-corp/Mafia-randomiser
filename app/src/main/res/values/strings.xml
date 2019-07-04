@@ -5,4 +5,7 @@
     <string name="role_name_text">Role name:</string>
     <string name="number_of_text"># of players:</string>
     <string name="submit_button">submit</string>
+    <string name="debugText">TextView</string>
+    <string name="randomizeButton">Randomize role</string>
+    <string name="yourText">Your randomized role:</string>
 </resources>
