@@ -43,9 +43,8 @@ class SetupActivity : AppCompatActivity() {
 
     fun retrieveData(): ArrayList<RoleValues> {
         var temp: ArrayList<RoleValues> = arrayListOf()
-        Log.d("simple", itemList[0].roleName.text.toString().isEmpty().toString())
         for (role in itemList) {
-            Log.d("simple", role.roleName.text.toString() + role.numberOf.text.toString() + "?")
+            Log.d("simple", role.roleName.text.toString() + role.numberOf.text.toString())
             temp.add(RoleValues(role.roleName.text.toString(), role.numberOf.text.toString().toInt()))
         }
         return temp

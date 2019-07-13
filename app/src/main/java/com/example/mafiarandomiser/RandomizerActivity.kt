@@ -29,7 +29,8 @@ class RandomizerActivity : AppCompatActivity() {
 
     fun onRandomize(view: View) {
         var randomObj = Random()
-        var index = if (itemList.size == 1) 0 else randomObj.nextInt(itemList.size - 1)
+        var index = if (itemList.size == 1) 0 else randomObj.nextInt(itemList.size)
+        Log.d("simple", index.toString())
         var randomRole = itemList[index]
 
         itemList[index].numberOf -= 1
