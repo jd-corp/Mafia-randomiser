@@ -13,7 +13,7 @@ class RandomizerActivity : AppCompatActivity() {
     lateinit var debugText: TextView
     lateinit var randomizedRoleText: TextView
     lateinit var randomizeButton: Button
-    lateinit var array: MutableList<Role>
+    lateinit var itemList: ArrayList<RoleValues>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,22 +22,22 @@ class RandomizerActivity : AppCompatActivity() {
         randomizedRoleText = findViewById(R.id.randomizedRoleText)
         randomizeButton = findViewById(R.id.randomizeButton)
 
-        array = (intent.getSerializableExtra("setupData") as Array<Role>).toMutableList()
-        Log.d("simple", array[0].roleName + array[0].numberOf)
-        debugText.text = array[0].roleName + array[0].numberOf
+        itemList = intent.getParcelableArrayListExtra("setupData")
+        Log.d("simple", itemList[0].roleName)
+        debugText.text = itemList[0].roleName + itemList[0].numberOf
     }
 
     fun onRandomize(view: View) {
         var randomObj = Random()
-        var index = if (array.size == 1) 0 else randomObj.nextInt(array.size - 1)
-        var randomRole = array[index]
+        var index = if (itemList.size == 1) 0 else randomObj.nextInt(itemList.size - 1)
+        var randomRole = itemList[index]
 
-        array[index].numberOf -= 1
+        itemList[index].numberOf -= 1
         randomizedRoleText.text = randomRole.roleName + randomRole.numberOf
-        if (array[index].numberOf == 0) {
-            array.removeAt(index)
+        if (itemList[index].numberOf == 0) {
+            itemList.removeAt(index)
         }
-        if (array.isEmpty()) {
+        if (itemList.isEmpty()) {
             randomizeButton.isClickable = false
         }
     }
