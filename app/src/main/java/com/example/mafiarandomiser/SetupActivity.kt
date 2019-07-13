@@ -13,16 +13,16 @@ import android.widget.Button
 import android.widget.EditText
 
 class SetupActivity : AppCompatActivity() {
-    lateinit var itemList: ArrayList<RoleInputs>
-    lateinit var button: Button
-    lateinit var listView: RecyclerView
-    lateinit var listAdapter: RecyclerView.Adapter<*>
-    lateinit var listLayoutManager: RecyclerView.LayoutManager
+    private lateinit var itemList: ArrayList<RoleInputs>
+    private lateinit var button: Button
+    private lateinit var listView: RecyclerView
+    private lateinit var listAdapter: RecyclerView.Adapter<*>
+    private lateinit var listLayoutManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setup)
-        button = findViewById(R.id.submit_button)
+        button = findViewById(R.id.submitButton)
         itemList = arrayListOf(RoleInputs(EditText(this), EditText(this)))
         itemList.add(RoleInputs(EditText(this), EditText(this)))
 
@@ -36,28 +36,27 @@ class SetupActivity : AppCompatActivity() {
     }
 
     fun onSubmit(view: View) {
-        var intent = Intent(this, RandomizerActivity::class.java)
+        val intent = Intent(this, RandomizerActivity::class.java)
         intent.putParcelableArrayListExtra("setupData", retrieveData())
         startActivity(intent)
     }
 
-    fun retrieveData(): ArrayList<RoleValues> {
-        var temp: ArrayList<RoleValues> = arrayListOf()
+    private fun retrieveData(): ArrayList<RoleValues> {
+        val temp: ArrayList<RoleValues> = arrayListOf()
         for (role in itemList) {
-            Log.d("simple", role.roleName.text.toString() + role.numberOf.text.toString())
-            temp.add(RoleValues(role.roleName.text.toString(), role.numberOf.text.toString().toInt()))
+            Log.d("simple", role.roleNameInput.text.toString() + role.numberOfInput.text.toString())
+            temp.add(RoleValues(role.roleNameInput.text.toString(), role.numberOfInput.text.toString().toInt()))
         }
         return temp
     }
 }
 
-data class RoleInputs(var roleName: EditText, var numberOf: EditText)
+data class RoleInputs(var roleNameInput: EditText, var numberOfInput: EditText)
 data class RoleValues(var roleName: String, var numberOf: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
+        parcel.readString()!!,
         parcel.readInt()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(roleName)

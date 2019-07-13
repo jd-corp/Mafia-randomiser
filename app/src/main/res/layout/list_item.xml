@@ -7,11 +7,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:labelFor="@id/inputNum1"
+            android:labelFor="@id/inputNumList"
             android:ems="10"
-            android:id="@+id/inputNum1"
+            android:id="@+id/inputNumList"
             android:width="50dp" android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp" android:layout_toEndOf="@+id/inputRole1"
+            android:layout_marginEnd="16dp" android:layout_toEndOf="@+id/inputRoleList"
             android:layout_marginStart="30dp" android:layout_alignParentEnd="true"
             tools:ignore="Autofill"
             android:layout_alignParentTop="true"/>
@@ -21,7 +21,7 @@
             android:inputType="textPersonName"
             android:ems="10"
             tools:ignore="Autofill"
-            android:labelFor="@id/inputRole1"
-            android:layout_marginStart="16dp" android:id="@+id/inputRole1" android:layout_marginTop="8dp"
+            android:labelFor="@id/inputRoleList"
+            android:layout_marginStart="16dp" android:id="@+id/inputRoleList" android:layout_marginTop="8dp"
             android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
 </RelativeLayout>

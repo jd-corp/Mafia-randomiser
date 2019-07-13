@@ -34,6 +34,6 @@
             android:text="@string/submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/submit_button" android:layout_marginTop="15dp"
+            android:id="@+id/submitButton" android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true" android:layout_below="@+id/list" android:onClick="onSubmit"/>
 </RelativeLayout>

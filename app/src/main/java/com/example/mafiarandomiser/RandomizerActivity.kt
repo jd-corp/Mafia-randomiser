@@ -2,7 +2,6 @@ package com.example.mafiarandomiser
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -23,15 +22,13 @@ class RandomizerActivity : AppCompatActivity() {
         randomizeButton = findViewById(R.id.randomizeButton)
 
         itemList = intent.getParcelableArrayListExtra("setupData")
-        Log.d("simple", itemList[0].roleName)
         debugText.text = itemList[0].roleName + itemList[0].numberOf
     }
 
     fun onRandomize(view: View) {
-        var randomObj = Random()
-        var index = if (itemList.size == 1) 0 else randomObj.nextInt(itemList.size)
-        Log.d("simple", index.toString())
-        var randomRole = itemList[index]
+        val randomObj = Random()
+        val index = if (itemList.size == 1) 0 else randomObj.nextInt(itemList.size)
+        val randomRole = itemList[index]
 
         itemList[index].numberOf -= 1
         randomizedRoleText.text = randomRole.roleName + randomRole.numberOf

@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onStartClick(view: View) {
-        var intent = Intent(this, SetupActivity::class.java)
+        val intent = Intent(this, SetupActivity::class.java)
         startActivity(intent)
     }
 }

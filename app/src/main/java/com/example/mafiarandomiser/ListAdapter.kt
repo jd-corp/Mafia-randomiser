@@ -11,12 +11,12 @@ import android.widget.EditText
 class ListAdapter(var itemList: ArrayList<RoleInputs>) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var roleName: EditText = itemView.findViewById(R.id.inputRole1)
-        var roleNum: EditText = itemView.findViewById(R.id.inputNum1)
+        var roleName: EditText = itemView.findViewById(R.id.inputRoleList)
+        var roleNum: EditText = itemView.findViewById(R.id.inputNumList)
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ListViewHolder {
-        var v = LayoutInflater.from(p0.context).inflate(R.layout.list_item, p0, false) as View
+        val v = LayoutInflater.from(p0.context).inflate(R.layout.list_item, p0, false) as View
         return ListViewHolder(v)
     }
 
@@ -25,9 +25,6 @@ class ListAdapter(var itemList: ArrayList<RoleInputs>) : RecyclerView.Adapter<Li
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, p1: Int) {
-        holder.roleName.setText(itemList[p1].roleName.text.toString())
-        holder.roleNum.setText(itemList[p1].numberOf.text.toString())
-
         val watch1 = Watcher1()
         val watch2 = Watcher2()
         watch1.updatePosition(holder.adapterPosition)
@@ -53,7 +50,7 @@ class ListAdapter(var itemList: ArrayList<RoleInputs>) : RecyclerView.Adapter<Li
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            itemList[position].roleName.setText(s)
+            itemList[position].roleNameInput.setText(s)
         }
     }
 
@@ -74,7 +71,7 @@ class ListAdapter(var itemList: ArrayList<RoleInputs>) : RecyclerView.Adapter<Li
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            itemList[position].numberOf.setText(s)
+            itemList[position].numberOfInput.setText(s)
         }
 
     }
